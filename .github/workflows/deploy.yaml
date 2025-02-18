@@ -14,7 +14,7 @@ jobs:
 
       - name: Get tag name without 'v' prefix
         id: tag_name
-        run: echo "TAG_NAME=$(echo '${GITHUB_REF#refs/tags/v}')"
+        run: echo "TAG_NAME=$(echo '${GITHUB_REF#refs/tags/v}')"  >> $GITHUB_ENV
         shell: bash
         continue-on-error: false
 
@@ -28,7 +28,7 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           build-args: |
-            VERSION=${{ steps.tag_name.outputs.TAG_NAME }}
+            VERSION=${{ env.TAG_NAME }}
           push: true
           tags: |
             ${{ env.REPO_NAME }}:${{ env.TAG_NAME }}
@@ -44,7 +44,7 @@ jobs:
       - name: Update ArgoCD project file with latest tag
         run: |
           TAG=${{ github.ref }}
-          TAG_NAME=$(echo "$TAG" | sed 's/refs\/tags\///')  # Get the actual tag name (remove refs/tags/)
+          echo "TAG_NAME=$(echo '${GITHUB_REF#refs/tags/v}')"
 
           # Change the value in the values file
           sed -i "s/tag:.*/tag: ${TAG_NAME}/" mizika-bot/k8s/mizika-bot.values
