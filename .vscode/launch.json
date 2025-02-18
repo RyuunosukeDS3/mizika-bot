@@ -1,0 +1,13 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Bot Debugger",
+            "type": "python",
+            "request": "launch",
+            "program": "bot.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}/src"
+        }
+    ]
+}
