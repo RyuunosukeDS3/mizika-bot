@@ -15,8 +15,8 @@ jobs:
       - name: Get tag name without 'v' prefix
         id: tag_name
         run: |
-          TAG=${{ github.event.release.tag_name }}
-          echo "TAG_NAME=${TAG#v}" >> $GITHUB_ENV
+          TAG="${{ github.ref }}"
+          echo "TAG_NAME="${TAG#refs/tags/v}"" >> $GITHUB_ENV
         shell: bash
         continue-on-error: false
 
