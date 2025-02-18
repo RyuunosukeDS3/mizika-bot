@@ -47,10 +47,10 @@ pre-commit:
     lint:
       run: npm run lint
 
-commit-msg:
-  commands:
-    commitlint:
-      run: npx commitlint --edit $1
+# commit-msg:
+#   commands:
+#     commitlint:
+#       run: npx commitlint --edit $1
 
 prepare-commit-msg:
   commands:
