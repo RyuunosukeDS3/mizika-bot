@@ -16,7 +16,9 @@ class Transmission:
         download_dir = self.client.get_session().download_dir
         label_dir = os.path.join(download_dir, label)
 
-        if (isinstance(torrent, str) and torrent.startswith("magnet:")) or isinstance(torrent, bytes):
+        if (isinstance(torrent, str) and torrent.startswith("magnet:")) or isinstance(
+            torrent, bytes
+        ):
             return self.client.add_torrent(
                 torrent, download_dir=label_dir, labels=[label]
             )
