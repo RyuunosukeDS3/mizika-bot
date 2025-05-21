@@ -11,7 +11,7 @@ TRANSMISSION = {
     "host": os.getenv("TRANSMISSION_HOST"),
     "port": int(os.getenv("TRANSMISSION_PORT", 9091)),  # Default to 9091
     "username": os.getenv("TRANSMISSION_USERNAME"),
-    "password": os.getenv("TRANSMISSION_PASSWORD")
+    "password": os.getenv("TRANSMISSION_PASSWORD"),
 }
 
 RADARR_BASE_URL = os.getenv("RADARR_BASE_URL")

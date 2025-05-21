@@ -25,6 +25,7 @@ async def load_commands():
 async def setup():
     await load_commands()
 
+
 bot.setup_hook = setup
 
 
@@ -46,5 +47,6 @@ async def on_ready():
 @bot.event
 async def on_shutdown():
     logger.info("Bot is shutting down, cleaning up connections...")
+
 
 bot.run(config.TOKEN)

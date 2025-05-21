@@ -22,15 +22,15 @@ class OpenServer(commands.Cog):
         if response.status_code != 200:
             embed.title = f"Falha ao subir servidor {app_name}"
             embed.color = Color.red()
-            embed.add_field(
-                name="Motivo:", value=response.content, inline=False)
-            
+            embed.add_field(name="Motivo:", value=response.content, inline=False)
+
         else:
             embed.title = "Servidor de  subindo"
             embed.color = Color.green()
             embed.add_field(
-                name="Servidor:", value=f"{app_name} subindo! Aguarde alguns minutos.")
-        
+                name="Servidor:", value=f"{app_name} subindo! Aguarde alguns minutos."
+            )
+
         return await ctx.send(embed=embed)
 
 

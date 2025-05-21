@@ -9,17 +9,17 @@ class Transmission:
             host=TRANSMISSION["host"],
             port=TRANSMISSION["port"],
             username=TRANSMISSION["username"],
-            password=TRANSMISSION["password"]
+            password=TRANSMISSION["password"],
         )
 
     def add_torrent(self, torrent, label: str):
         download_dir = self.client.get_session().download_dir
         label_dir = os.path.join(download_dir, label)
 
-        if isinstance(torrent, str) and torrent.startswith("magnet:"):
-            return self.client.add_torrent(torrent, download_dir=label_dir, labels=[label])
-        elif isinstance(torrent, bytes):
-            return self.client.add_torrent(torrent, download_dir=label_dir, labels=[label])
+        if (isinstance(torrent, str) and torrent.startswith("magnet:")) or isinstance(torrent, bytes):
+            return self.client.add_torrent(
+                torrent, download_dir=label_dir, labels=[label]
+            )
         else:
             return None
 
