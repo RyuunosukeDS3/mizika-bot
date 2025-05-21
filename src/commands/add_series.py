@@ -6,10 +6,10 @@ from decorators import requires_role, log_command_usage
 
 
 class DownloadSeries(commands.Cog):
-    def __init__(self, bot):
-        self.bot = bot
-        self.transmission_api = Transmission()
-        self.sonarr_api = Sonarr()
+    # def __init__(self, bot):
+    #     self.bot = bot
+    #     self.transmission_api = Transmission()
+    #     self.sonarr_api = Sonarr()
 
     @commands.command(name="add_series")
     @log_command_usage

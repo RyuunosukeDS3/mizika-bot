@@ -32,14 +32,15 @@ bot.setup_hook = setup
 async def on_ready():
     logger.info(f"Logged in as {bot.user}")
     guild = bot.guilds[0]
-    role_name = "trusted_downloader"
-    existing_role = discord.utils.get(guild.roles, name=role_name)
+    needed_roles = ["trusted_downloader", "server_keeper"]
+    for role_name in needed_roles:
+        existing_role = discord.utils.get(guild.roles, name=role_name)
 
-    if not existing_role:
-        await guild.create_role(name=role_name)
-        logger.info(f"Created role: {role_name}")
-    else:
-        logger.info(f"Role '{role_name}' already exists.")
+        if not existing_role:
+            await guild.create_role(name=role_name)
+            logger.info(f"Created role: {role_name}")
+        else:
+            logger.info(f"Role '{role_name}' already exists.")
 
 
 @bot.event

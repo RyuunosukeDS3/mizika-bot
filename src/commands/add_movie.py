@@ -6,10 +6,10 @@ from decorators import requires_role, log_command_usage
 
 
 class DownloadMovie(commands.Cog):
-    def __init__(self, bot):
-        self.bot = bot
-        self.transmission_api = Transmission()
-        self.radarr_api = Radarr()
+    # def __init__(self, bot):
+    #  self.bot = bot
+    #     self.transmission_api = Transmission()
+    #     self.radarr_api = Radarr()   
 
     @commands.command(name="add_movie")
     @log_command_usage
