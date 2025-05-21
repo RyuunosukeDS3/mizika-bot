@@ -49,7 +49,7 @@ jobs:
   trivy-fs:
       name: Trivy FS Scan (Source Code)
       runs-on: ubuntu-latest
-      needs: build
+      needs: lint
       steps:
         - uses: actions/checkout@v3
 
